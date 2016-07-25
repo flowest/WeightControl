@@ -37,6 +37,11 @@ namespace WeightControl
         public string Name { get; set; }
     }
 
+    public class JochenResponse
+    {
+        public string NameDesJochens { get; set; }
+    }
+
     public class MyServices : Service
     {
         public object Any(HelloRequest request)
@@ -46,7 +51,10 @@ namespace WeightControl
 
         public object Any(JochenRequest jochen)
         {
-            return jochen;
+            return new JochenResponse
+            {
+                NameDesJochens = jochen.Name + " ist ein wahrer Jochen"
+            };
         }
     }
 }

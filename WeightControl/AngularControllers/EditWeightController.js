@@ -28,9 +28,9 @@ function EditWeightController($scope, $http) {
     $scope.saveWeights = function (callback) {
         $http({
             method: 'GET',
-            url: '/'
+            url: '/api/jochen/karl'
         }).success(function(data) {
-            alert(data);
+            alert(data.NameDesJochens);
         });
     };
 }
