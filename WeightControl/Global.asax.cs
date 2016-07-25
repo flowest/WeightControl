@@ -13,6 +13,9 @@ namespace WeightControl
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+
+            new AppHost().Init();
         }
     }
 }
