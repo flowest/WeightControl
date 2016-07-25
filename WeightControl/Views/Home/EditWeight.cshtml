@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "EditWeight";
+    Layout = "~/Views/Shared/_ShellPage.cshtml";
+}
+
+<script src="~/AngularControllers/EditWeightController.js"></script>
+<div ng-controller="EditWeightController">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Edit your Weight</h2>
+            <form>
+                <div class="form-group">
+                    <label for="weightInput">Gewicht eingeben</label>
+                    <input type="text" class="form-control" id="weightInput" placeholder="Text eingeben" ng-model="weight">
+                    <div class="label label-danger" ng-show="weightisInvalid">Bitte eine Zahl eingeben</div><br/>
+                    <button ng-disabled="weightisInvalid" ng-click="addWeight(weight)" class="btn btn-info">Add</button>
+                    <button ng-click="saveWeights()" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6">
+            <ul>
+                <li ng-repeat="entry in weights">{{entry}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
