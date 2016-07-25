@@ -42,6 +42,18 @@ namespace WeightControl
         public string NameDesJochens { get; set; }
     }
 
+    [ServiceStack.Route("/weightsEdited")]
+    [ServiceStack.Route("/weightsEdited/{WeightsEdited}")]
+    public class WeightsEditedRequest
+    {
+        public double[] WeightsEdited { get; set; }
+    }
+
+
+
+
+
+
     public class MyServices : Service
     {
         public object Any(HelloRequest request)
@@ -55,6 +67,14 @@ namespace WeightControl
             {
                 NameDesJochens = jochen.Name + " ist ein wahrer Jochen"
             };
+
+        }
+
+        public object Any(WeightsEditedRequest weights)
+        {
+            var edits = weights.WeightsEdited;
+
+            return null;
         }
     }
 }
