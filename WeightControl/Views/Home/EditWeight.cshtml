@@ -16,7 +16,8 @@
                     <label for="weightInput">Gewicht eingeben</label>
                     <input type="text" class="form-control" id="weightInput" placeholder="Text eingeben" ng-model="weight">
                     <div class="label label-danger" ng-show="weightisInvalid">Bitte eine Zahl eingeben</div><br />
-                    <button ng-click="saveWeight()" class="btn btn-success">Save</button>
+                    <button ng-click="saveWeight()" ng-disabled="weightExistsOnDate || weightisInvalid" class="btn btn-success">Save</button>
+                    <button ng-click="editWeight()" ng-disabled="!weightExistsOnDate" class="btn btn-warning">Edit</button>
                 </div>
             </form>
         </div>

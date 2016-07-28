@@ -4,10 +4,19 @@
     Layout = "~/Views/Shared/_ShellPage.cshtml";
 }
 
+<script src="~/AngularControllers/IndexController.js"></script>
+<div ng-controller="IndexController">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Start Seite</h2>
+            @Html.ActionLink("Gewicht eintragen", "EditWeight")
 
-<div class="row">
-    <div class="col-lg-12">
-        <h2>Start Seite</h2>
-        @Html.ActionLink("Gewicht eintragen", "EditWeight")
+            <button ng-click="test()">Test</button>
+
+            <div id="placeholder" style="width:600px;height:300px"></div>
+
+
+            <div>{{allWeights}}</div>
+        </div>
     </div>
 </div>
