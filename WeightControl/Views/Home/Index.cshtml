@@ -26,13 +26,13 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h2>Start Seite</h2>
-            @Html.ActionLink("Gewicht eintragen", "EditWeight")
-
+            <h2>Eintr&auml;ge f&uuml;r den Monat <b>{{monthNames[dt.getMonth()]}}</b> in <b>{{dt.getFullYear()}}</b></h2>
             <div id="placeholder" style="width: 600px; height: 300px"></div>
 
 
             <div>{{allWeights}}</div>
+            <button class="btn btn-info">@Html.ActionLink("Gewicht eintragen", "EditWeight")</button>
+            
         </div>
     </div>
 </div>
