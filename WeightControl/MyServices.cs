@@ -8,9 +8,10 @@ using WeightControl.Services;
 namespace WeightControl
 {
     [ServiceStack.Route("/getAllWeights")]
-    [ServiceStack.Route("/getAllWeights/{Month}")]
+    [ServiceStack.Route("/getAllWeights/{Year}/{Month}")]
     public class GetAllWeightsRequest
     {
+        public int Year { get; set; }
         public int Month { get; set; }
     }
 
@@ -95,8 +96,11 @@ namespace WeightControl
 
                 foreach (var weight in weights)
                 {
-                    string dateString = weight.Id.Year.ToString() + '-' + weight.Id.Month + '-' + weight.Id.Day;
-                    response.Weights.Add(dateString, weight.BodyWeight);
+                    if (weight.Id.Month == request.Month && weight.Id.Year == request.Year)
+                    {
+                        string dateString = weight.Id.Year.ToString() + '-' + weight.Id.Month + '-' + weight.Id.Day;
+                        response.Weights.Add(dateString, weight.BodyWeight);
+                    }
                 }
             }
 
