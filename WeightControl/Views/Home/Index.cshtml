@@ -6,14 +6,30 @@
 
 <script src="~/AngularControllers/IndexController.js"></script>
 <div ng-controller="IndexController">
+
+    <div class="row">
+        <div class="col-lg-6">
+
+            <datepicker ng-model="dt" min-mode="year" datepicker-mode="'year'"></datepicker>
+            <hr />
+        </div>
+        <div class="col-lg-6">
+
+            <datepicker ng-model="dt" min-mode="month" datepicker-mode="'month'"></datepicker>
+            <hr />
+            <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
+
+            <p> Month: {{dt.getMonth() + 1}}</p>
+            <p> Year: {{dt.getFullYear()}}</p>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-12">
             <h2>Start Seite</h2>
             @Html.ActionLink("Gewicht eintragen", "EditWeight")
 
-            <button ng-click="test()">Test</button>
-
-            <div id="placeholder" style="width:600px;height:300px"></div>
+            <div id="placeholder" style="width: 600px; height: 300px"></div>
 
 
             <div>{{allWeights}}</div>
